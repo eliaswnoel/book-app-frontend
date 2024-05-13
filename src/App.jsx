@@ -4,20 +4,21 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 const apiServer = 'http://localhost:4000';
-const handleGet = async () => {
-  //e.preventDefault();
+const handleGet = async () =>  {
   try {
-    const response = await axios.get(`${apiServer}/`)
+    const response = await axios.get(`${apiServer}`);
     console.log(response);
-    // setFood("");
+    return response;
   } catch (error) {
-    console.log(error)
+    console.log(error);
+    return error;
   }
-}
+};
 
 function App() {
   const [count, setCount] = useState(0)
   handleGet();
+
   return (
     <>
       <div>
