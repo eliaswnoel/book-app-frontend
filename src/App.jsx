@@ -3,6 +3,8 @@ import { useState } from "react";
 import { Routes, Route, BrowserRouter, NavLink} from "react-router-dom";
 import Book from "./components/Book";
 import Home from "./components/Home"
+import Log from "./components/Log"
+import Wishlist from "./components/Wishlist"
 
 function App() {
   return (
@@ -10,12 +12,15 @@ function App() {
       <div>
         <nav className="top-nav">
           <NavLink to="/">Home</NavLink>
-          <NavLink to="/books">Reading Log</NavLink>
+          <NavLink to="/wishlist">Wishlist</NavLink>
+          <NavLink to="/log">Reading Log</NavLink>
         </nav>
         
         <Routes>
+          <Route path="/books" element={<Book/>} />
           <Route path="/" element={<Home />} />
-          <Route path="/books" element={<Book />} />
+          <Route path="/log" element={<Log />} />
+          <Route path="/wishlist" element={<Wishlist />} />
         </Routes>
       </div>
     </BrowserRouter>
