@@ -10,7 +10,7 @@ function App() {
       <div>
         <nav className="top-nav">
           <NavLink to="/">Home</NavLink>
-          <NavLink to="/books">Books</NavLink>
+          <NavLink to="/books">Reading Log</NavLink>
         </nav>
         
         <Routes>
