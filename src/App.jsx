@@ -1,49 +1,22 @@
-import axios from 'axios'
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-const apiServer = 'http://localhost:4000';
-const handleGet = async () =>  {
-  try {
-    const response = await axios.get(`${apiServer}`);
-    console.log(response);
-    return response;
-  } catch (error) {
-    console.log(error);
-    return error;
-  }
-};
+import "./App.css";
+import { useState } from "react";
+import { Routes, Route, BrowserRouter} from "react-router-dom";
+import Book from "./components/Book";
 
 function App() {
-  const [count, setCount] = useState(0)
-  handleGet();
-
   return (
-    <>
+    <BrowserRouter> {/* Wrap your entire application with BrowserRouter */}
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-          testing
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <nav className="top-nav">
+          <a href="/books">Books</a>
+        </nav>
+        
+        <Routes>
+          <Route path="/books" element={<Book />} />
+        </Routes>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
