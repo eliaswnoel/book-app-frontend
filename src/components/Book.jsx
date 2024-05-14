@@ -1,20 +1,21 @@
-import { useEffect, useState, useCallback } from "react";
-import axios from 'axios'
+import { useEffect, useState } from "react";
+import axios from 'axios';
 
 const Book = () => {
     const [books, setBooks] = useState([]);
+    const [expandedBook, setExpandedBook] = useState(null);
     const [newBook, setNewBook] = useState({
         name: "",
         image: "",
         summary: "",
         rating: 0
-    }) 
+    });
 
     useEffect(() => {
         fetchBooks();
     }, []);
 
-    //Get Books
+    // Get Books
     const fetchBooks = async () => {
         try {
             const response = await axios.get('http://localhost:4000/books');
@@ -23,8 +24,13 @@ const Book = () => {
             console.error('Error fetching books:', error);
         }
     };
+    
+    const handleImageClick = (book) => {
+        // Toggle expanded state for the clicked book
+        setExpandedBook(expandedBook === book ? null : book);
+    };
 
-    //Handle Change
+    // Handle Change
     const handleChange = (e) => {
         const { name, value } = e.target;
         setNewBook(prevState => ({
@@ -33,7 +39,7 @@ const Book = () => {
         }));
     };
 
-    //Handle Submit
+    // Handle Submit
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -50,12 +56,11 @@ const Book = () => {
         } catch (error) {
             console.error('Error adding book:', error);
         }
-
-};
+    };
 
     return (
         <div>
-            {/* add new book form */}
+            {/* Add new book form */}
             <form onSubmit={handleSubmit}>
                 <input
                     type='text'
@@ -87,12 +92,17 @@ const Book = () => {
                 />
                 <button type="submit">Add Book</button>
             </form>
+            {/* List of books */}
             {books.map((book, index) => (
                 <div key={index}>
                     <h2>{book.name}</h2>
-                    <img src={book.image} alt={book.name} />
-                    <p>Summary: {book.summary}</p>
-                    <p>Rating: {book.rating}</p>
+                    <img src={book.image} alt={book.name} onClick={() => handleImageClick(book)} style={{ cursor: "pointer" }} />
+                    {expandedBook === book && (
+                        <div>
+                            <p>Summary: {book.summary}</p>
+                            <p>Rating: {book.rating}</p>
+                        </div>
+                    )}
                 </div>
             ))}
         </div>
