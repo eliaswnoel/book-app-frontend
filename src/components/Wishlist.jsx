@@ -75,7 +75,6 @@ const Wishlist = () => {
                         <h2>{item.title}</h2>
                         <p>Author: {item.author}</p>
                         <img src={item.image} alt={`${item.title} by ${item.author}`} onClick={() => handleImageClick(item)} />
-                        {expandedItem === item && <p>{item.description}</p>}
                     </li>
                 ))}
             </ul>
