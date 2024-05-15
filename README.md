@@ -1,8 +1,29 @@
-# React + Vite
+# BookWorm
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+With BookWorm you can catalogue your entire book collection, rate your reads and maintain a curated wishlist of books you want to dive into next. Share your thoughts and insights by writing reviews, and explore recommendations from fellow readers. Connect with book clubs in your area to join discussions with fellow book lovers. BookWorm is your conduit to a community of passionate readers!
 
-Currently, two official plugins are available:
+## Developer
+Noel Elias | [GitHub](https://github.com/eliaswnoel) 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies Used
+React<br>
+Express<br>
+JavaScript<br>
+Node.js
+
+
+## Wireframes
+![alt text](images/bookworm_wireframe.png)
+
+## Database ERD
+![alt text](images/ERDiagram.jpeg)
+
+## Component Hierarchy Diagram
+![alt text](images/component_diagram.jpeg)
+
+## Post-MVP Ideas
+- Implement 3rd Party API to have books already stored away
+- Integrate Mapbox so user's can view bookclubs in your area
+
+## Get BookWorm
+Follow Production timeline through [Trello](https://trello.com/invite/b/M4RroajX/ATTI734987d0d983cc1549165104910675316F6B0809/bookworm-app)

@@ -2,7 +2,8 @@ import "./App.css";
 import { useState } from "react";
 import { Routes, Route, BrowserRouter, NavLink} from "react-router-dom";
 import Book from "./components/Book";
-import Home from "./components/Home"
+import Home from "./components/Home";
+import Wishlist from "./components/Wishlist"
 
 function App() {
   return (
@@ -11,11 +12,13 @@ function App() {
         <nav className="top-nav">
           <NavLink to="/">Home</NavLink>
           <NavLink to="/books">Reading Log</NavLink>
+          <NavLink to="/wishlist">Wishlist</NavLink>
         </nav>
         
         <Routes>
-          <Route path="/books" element={<Book/>} />
           <Route path="/" element={<Home />} />
+          <Route path="/books" element={<Book/>} />
+          <Route path="/wishlist" element={<Wishlist/>} />
         </Routes>
       </div>
     </BrowserRouter>
