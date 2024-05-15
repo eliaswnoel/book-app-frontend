@@ -51,6 +51,16 @@ const Wishlist = () => {
         }
     };
 
+    //Handle Delete
+    const handleDelete = async (id) => {
+        try {
+            await axios.delete(`http://localhost:4000/wishlist/${id}`);
+            fetchWishlistItems();    
+        } catch (error) {
+            console.error('Error deleting wishlist:', error);
+        }
+    };
+
     return (
         <div>
             <h1>Wishlist</h1>
@@ -75,6 +85,7 @@ const Wishlist = () => {
                         <h2>{item.title}</h2>
                         <p>Author: {item.author}</p>
                         <img src={item.image} alt={`${item.title} by ${item.author}`} onClick={() => handleImageClick(item)} />
+                        <button onClick={() => handleDelete(item._id)}>delete</button>
                     </li>
                 ))}
             </ul>
