@@ -43,13 +43,8 @@ const Book = ({}) => {
     // Handle Submit
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const newFormData = Array.from(e.target.elements)
-            .filter((input) => input.name)
-            .reduce((obj, input) => Object.assign(obj, { [input.name]: input.value }), {});
-        newFormData.type = type;
-        console.log("TYPE:", type)
         try {
-            await axios.post(`http://localhost:4000/books`, newFormData );
+            await axios.post(`http://localhost:4000/books`, newBook);
             
             // Reset form field after submitting
             setNewBook({
