@@ -79,13 +79,13 @@ const Wishlist = () => {
                 </div>
                 <button type="submit">Add to Wishlist</button>
             </form>
-            <ul>
+            <ul className="wishlistGrid">
                 {wishlistItems.map(item => (
                     <li key={item._id}>
                         <h2>{item.title}</h2>
                         <p>Author: {item.author}</p>
-                        <img src={item.image} alt={`${item.title} by ${item.author}`} onClick={() => handleImageClick(item)} />
-                        <button onClick={() => handleDelete(item._id)}>delete</button>
+                        <img src={item.image} alt={`${item.title} by ${item.author}`} />
+                        <button onClick={() => handleDelete(item._id)}>Delete</button>
                     </li>
                 ))}
             </ul>
