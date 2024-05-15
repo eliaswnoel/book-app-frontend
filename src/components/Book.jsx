@@ -65,6 +65,16 @@ const Book = ({}) => {
         }
     };
 
+    //Handle Delete
+    const handleDelete = async (id) => {
+        try {
+            await axios.delete(`http://localhost:4000/books/${id}`);
+            fetchBooks();    
+        } catch (error) {
+            console.error('Error deleting book:', error);
+        }
+    };
+
     return (
         <div>
             {/* Add new book form */}
@@ -100,19 +110,22 @@ const Book = ({}) => {
                 <button type="submit">Add Book</button>
             </form>
             {/* List of books */}
+        <div className="logGrid">
             {books.map((book, index) => (
-                <div key={index}>
+                <div key={index} className="logItem">
                     <h2>{book.name}</h2>
-                    <img src={book.image} alt={book.name} onClick={() => handleImageClick(book)} style={{ cursor: "pointer" }} />
+                    <img src={book.image} alt={book.name} className="logImg" onClick={() => handleImageClick(book)} style={{ cursor: "pointer" }} />
                     {expandedBook === book && (
                         <div>
                             <p>Summary: {book.summary}</p>
                             <p>Rating: {book.rating}</p>
+                            <button onClick={() => handleDelete(book._id)}>delete book from log</button>
                         </div>
                     )}
                 </div>
             ))}
         </div>
+    </div>
     );
 }
 
