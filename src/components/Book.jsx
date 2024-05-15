@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from 'axios';
 
-const BookForm = ({type}) => {
+const Book = ({}) => {
     const [books, setBooks] = useState([]);
     const [expandedBook, setExpandedBook] = useState(null);
     const [newBook, setNewBook] = useState({
@@ -18,7 +18,7 @@ const BookForm = ({type}) => {
     // Get Books
     const fetchBooks = async () => {
         try {
-            const response = await axios.get(`http://localhost:4000/list?type=${type}`);
+            const response = await axios.get(`http://localhost:4000/books`);
             
             setBooks(response.data);
         } catch (error) {
@@ -49,7 +49,7 @@ const BookForm = ({type}) => {
         newFormData.type = type;
         console.log("TYPE:", type)
         try {
-            await axios.post(`http://localhost:4000/list`, newFormData );
+            await axios.post(`http://localhost:4000/books`, newFormData );
             
             // Reset form field after submitting
             setNewBook({
@@ -116,4 +116,4 @@ const BookForm = ({type}) => {
     );
 }
 
-export default BookForm;
+export default Book;
