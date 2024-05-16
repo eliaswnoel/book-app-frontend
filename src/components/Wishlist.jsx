@@ -1,13 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from 'axios';
+import WishlistModal from './WishlistModal'
 
 const Wishlist = () => {
     const [wishlistItems, setWishlistItems] = useState([]);
-    const [newItem, setNewItem] = useState({
-        title: "",
-        author: "",
-        image: ""
-    });
+    const [isModalOpen, setIsModalOpen] = useState(false);
     
     useEffect(() => {
         fetchWishlistItems();
@@ -24,32 +21,32 @@ const Wishlist = () => {
     };
 
     //Handle Change
-    const handleChange = (e) => {
-        const {name, value} = e.target;
-        setNewItem(prevState => ({
-            ...prevState,
-            [name]: value
-        }));
-    };
+    // const handleChange = (e) => {
+    //     const {name, value} = e.target;
+    //     setNewItem(prevState => ({
+    //         ...prevState,
+    //         [name]: value
+    //     }));
+    // };
 
     //Handle Submit
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            await axios.post('http://localhost:4000/wishlist', newItem);
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+    //     try {
+    //         await axios.post('http://localhost:4000/wishlist', newItem);
             
             // Reset form fields after submitting
-            setNewItem({
-                title: "",
-                author: "",
-                image: ""
-            });
+            // setNewItem({
+            //     title: "",
+            //     author: "",
+            //     image: ""
+            // });
             // Refetch the list of wishlist items to display the newly added item
-            fetchWishlistItems();
-        } catch (error) {
-            console.error('Error adding item to wishlist:', error);
-        }
-    };
+    //         fetchWishlistItems();
+    //     } catch (error) {
+    //         console.error('Error adding item to wishlist:', error);
+    //     }
+    // };
 
     //Handle Delete
     const handleDelete = async (id) => {
@@ -61,24 +58,20 @@ const Wishlist = () => {
         }
     };
 
+    const openModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
+
+
     return (
         <div>
             <h1>Wishlist</h1>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Title:</label>
-                    <input type="text" name="title" value={newItem.title} onChange={handleChange} />
-                </div>
-                <div>
-                    <label>Author:</label>
-                    <input type="text" name="author" value={newItem.author} onChange={handleChange} />
-                </div>
-                <div>
-                    <label>Image:</label>
-                    <input type="text" name="image" value={newItem.image} onChange={handleChange} />
-                </div>
-                <button type="submit">Add to Wishlist</button>
-            </form>
+            <button onClick={openModal}>Add New Item</button>
+
             <ul className="wishlistGrid">
                 {wishlistItems.map(item => (
                     <li key={item._id}>
@@ -89,8 +82,11 @@ const Wishlist = () => {
                     </li>
                 ))}
             </ul>
+
+            {/* Render the modal if isModalOpen is true */}
+            {isModalOpen && <WishlistModal onClose={closeModal} fetchWishlistItems={fetchWishlistItems} />}
         </div>
     );
-};
+}
 
 export default Wishlist;
