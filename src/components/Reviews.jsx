@@ -39,27 +39,54 @@ const Reviews = () => {
         setIsModalOpen(false);
     };
 
-    return (
-        <div>
-            <button onClick={openModal}>Add New Review</button>
-            {/* List of reviews */}
-            <div className="logGrid">
-                {reviews.map((review, index) => (
-                    <div key={index} className="logItem">
-                        <h2>{review.title}</h2>
-                        <Link to={`/reviews/${review._id}`}>
-                            <img src={review.image} alt={review.title} className="logImg" style={{ cursor: "pointer" }} />
-                        </Link>
-                        <Link to={`/reviews/${review._id}`}>
-                            <button>Read Full Review</button>
-                        </Link>
-                    </div>
-                ))}
+//     return (
+//         <div>
+//             <button onClick={openModal}>Add New Review</button>
+//             {/* List of reviews */}
+//             <div className="logGrid">
+//                 {reviews.map((review, index) => (
+//                     <div key={index} className="logItem">
+//                         <h2>{review.title}</h2>
+//                         <Link to={`/reviews/${review._id}`}>
+//                             <img src={review.image} alt={review.title} className="logImg" style={{ cursor: "pointer" }} />
+//                         </Link>
+//                         <Link to={`/reviews/${review._id}`}>
+//                             <button>Read Full Review</button>
+//                         </Link>
+//                     </div>
+//                 ))}
+//             </div>
+//             {/* Render the modal if isModalOpen is true */}
+//             {isModalOpen && <ReviewModal onClose={closeModal} fetchReviews={fetchReviews} />}
+//         </div>
+//     );
+// }
+return (
+    <div>
+      <button onClick={openModal}>Add New Review</button>
+      {/* List of reviews */}
+      <div className="reviewslogGrid">
+        {reviews.map((review, index) => (
+          <div key={index} className="reviewslogItem">
+            <div className="imageWrapper">
+              <h2>{review.title}</h2>
+              <Link to={`/reviews/${review._id}`}>
+                <img src={review.image} alt={review.title} className="reviewslogImg" style={{ cursor: "pointer" }} />
+              </Link>
             </div>
-            {/* Render the modal if isModalOpen is true */}
-            {isModalOpen && <ReviewModal onClose={closeModal} fetchReviews={fetchReviews} />}
-        </div>
-    );
+            <div className="buttonWrapper">
+              <Link to={`/reviews/${review._id}`}>
+                <button>Read Full Review</button>
+              </Link>
+            </div>
+          </div>
+        ))}
+      </div>
+      {/* Render the modal if isModalOpen is true */}
+      {isModalOpen && <ReviewModal onClose={closeModal} fetchReviews={fetchReviews} />}
+    </div>
+  );
 }
+
 
 export default Reviews;
