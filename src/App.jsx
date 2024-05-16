@@ -5,6 +5,7 @@ import Book from "./components/Book";
 import Home from "./components/Home";
 import Wishlist from "./components/Wishlist"
 import Reviews from "./components/Reviews"
+import ReviewDetails from "./components/ReviewDetails"
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/books" element={<Book/>} />
           <Route path="/wishlist" element={<Wishlist/>} />
           <Route path="/reviews" element={<Reviews/>} />
+          <Route path="/reviews/:id" element={<ReviewDetails/>} />
         </Routes>
       </div>
     </BrowserRouter>

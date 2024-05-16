@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from "react";
 import ReviewModal from './ReviewModal';
+import { Link } from 'react-router-dom';
 
 const Reviews = () => {
     const [reviews, setReviews] = useState([]);
@@ -46,12 +47,12 @@ const Reviews = () => {
                 {reviews.map((review, index) => (
                     <div key={index} className="logItem">
                         <h2>{review.title}</h2>
-                        <img src={review.image} alt={review.title} className="logImg" style={{ cursor: "pointer" }} />
-                        <div>
-                            <p>{review.review}</p>
-                            <p>Date: {new Date(review.date).toLocaleDateString()}</p>
-                            <button onClick={() => handleDelete(review._id)}>delete review from log</button>
-                        </div>
+                        <Link to={`/reviews/${review._id}`}>
+                            <img src={review.image} alt={review.title} className="logImg" style={{ cursor: "pointer" }} />
+                        </Link>
+                        <Link to={`/reviews/${review._id}`}>
+                            <button>Read Full Review</button>
+                        </Link>
                     </div>
                 ))}
             </div>
