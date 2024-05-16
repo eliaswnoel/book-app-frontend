@@ -4,6 +4,7 @@ import { Routes, Route, BrowserRouter, NavLink} from "react-router-dom";
 import Book from "./components/Book";
 import Home from "./components/Home";
 import Wishlist from "./components/Wishlist"
+import Reviews from "./components/Reviews"
 
 function App() {
   return (
@@ -13,12 +14,14 @@ function App() {
           <NavLink to="/">Home</NavLink>
           <NavLink to="/books">Reading Log</NavLink>
           <NavLink to="/wishlist">Wishlist</NavLink>
+          <NavLink to="/reviews">Reviews</NavLink>
         </nav>
         
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/books" element={<Book/>} />
           <Route path="/wishlist" element={<Wishlist/>} />
+          <Route path="/reviews" element={<Reviews/>} />
         </Routes>
       </div>
     </BrowserRouter>

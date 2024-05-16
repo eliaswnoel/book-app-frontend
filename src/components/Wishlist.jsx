@@ -20,33 +20,6 @@ const Wishlist = () => {
         }
     };
 
-    //Handle Change
-    // const handleChange = (e) => {
-    //     const {name, value} = e.target;
-    //     setNewItem(prevState => ({
-    //         ...prevState,
-    //         [name]: value
-    //     }));
-    // };
-
-    //Handle Submit
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     try {
-    //         await axios.post('http://localhost:4000/wishlist', newItem);
-            
-            // Reset form fields after submitting
-            // setNewItem({
-            //     title: "",
-            //     author: "",
-            //     image: ""
-            // });
-            // Refetch the list of wishlist items to display the newly added item
-    //         fetchWishlistItems();
-    //     } catch (error) {
-    //         console.error('Error adding item to wishlist:', error);
-    //     }
-    // };
 
     //Handle Delete
     const handleDelete = async (id) => {

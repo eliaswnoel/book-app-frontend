@@ -19,11 +19,12 @@ body {
   justify-content: flex-start;
   gap: 15px;
   width: 100%;
+  height: 75px;
   padding: 0 10px;
   margin: 0px 0px 25px 0px;
   font-size: xx-large;
   font-weight: 600;
-  background-color: whitesmoke;
+  background-color: rgb(225, 166, 234);
   font-family: 'Indie Flower', cursive;
 }
 
@@ -57,7 +58,7 @@ body {
 .home-image {
   position: absolute; 
   opacity: 80%;
-  top: 5%; 
+  top: 8%; 
   left: 50%; 
   transform: translateX(-50%); 
   width: 900px; 
@@ -67,14 +68,18 @@ body {
 
 .text-container {
   position: absolute;
-  top: calc(20px + 400px + 60px);
+  top: calc(20px + 400px + 90px);
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
   font-family: 'Indie Flower', cursive;
   color: #72199f;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.135)
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.135);
+  background-color: rgb(225, 166, 234);
+  font-size: 15px;
 }
+
+
 
 .modal {
   position: fixed;
