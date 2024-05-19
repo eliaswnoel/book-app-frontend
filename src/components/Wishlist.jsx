@@ -39,11 +39,12 @@ const Wishlist = () => {
         setIsModalOpen(false);
     };
 
-
     return (
         <div>
             <h1>Wishlist</h1>
             <button onClick={openModal}>Add New Item</button>
+
+            
 
             <ul className="wishlistGrid">
                 {wishlistItems.map(item => (
@@ -56,7 +57,6 @@ const Wishlist = () => {
                 ))}
             </ul>
 
-            {/* Render the modal if isModalOpen is true */}
             {isModalOpen && <WishlistModal onClose={closeModal} fetchWishlistItems={fetchWishlistItems} />}
         </div>
     );
