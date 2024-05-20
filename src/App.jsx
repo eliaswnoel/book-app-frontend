@@ -1,7 +1,6 @@
 import "./App.css";
 import { useState, useEffect } from "react";
 import { Routes, Route, BrowserRouter, NavLink } from "react-router-dom";
-import Nav from "./components/Nav";
 import Book from "./components/Book";
 import Home from "./components/Home";
 import Wishlist from "./components/Wishlist";
@@ -13,11 +12,6 @@ import { CheckSession } from "./services/Auth";
 
 const App = () => {
   const [user, setUser] = useState(null);
-
-  // const handleLogOut = () => {
-  //   setUser(null);
-  //   localStorage.clear();
-  // };
 
   const checkToken = async () => {
     const user = await CheckSession();
@@ -32,7 +26,6 @@ const App = () => {
     <BrowserRouter>
       {/* Wrap your entire application with BrowserRouter */}
       <nav className="top-nav">
-        {/* <Nav user={user} handleLogOut={handleLogOut} /> */}
         <NavLink to="/">Home</NavLink>
         <NavLink to="/books">Reading Log</NavLink>
         <NavLink to="/wishlist">Wishlist</NavLink>
