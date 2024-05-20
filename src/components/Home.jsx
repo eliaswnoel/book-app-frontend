@@ -14,6 +14,7 @@ const Home = () => {
         <h2>WRITE, SHARE AND DISCPVER: YOUR HOME FOR BOOKISH EXPLORATION</h2>
         <h2>we can't wait to see what books you bring to the community :)</h2>
       </div>
+      <h3>TRENDING READS</h3>
     </div>
   );
 };

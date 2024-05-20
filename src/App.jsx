@@ -6,6 +6,9 @@ import Home from "./components/Home";
 import Wishlist from "./components/Wishlist"
 import Reviews from "./components/Reviews"
 import ReviewDetails from "./components/ReviewDetails"
+import Register from "./components/Register"
+import SignIn from "./components/SignIn"
+
 
 function App() {
   return (
@@ -16,6 +19,8 @@ function App() {
           <NavLink to="/books">Reading Log</NavLink>
           <NavLink to="/wishlist">Wishlist</NavLink>
           <NavLink to="/reviews">Reviews</NavLink>
+          <NavLink to="/login">Login</NavLink>
+          <NavLink to="/register">Register</NavLink>
         </nav>
         
         <Routes>
@@ -24,6 +29,8 @@ function App() {
           <Route path="/wishlist" element={<Wishlist/>} />
           <Route path="/reviews" element={<Reviews/>} />
           <Route path="/reviews/:id" element={<ReviewDetails/>} />
+          <Route path="/register" element={<Register/>} />
+          <Route path="/login" element={<SignIn/>} />
         </Routes>
       </div>
     </BrowserRouter>

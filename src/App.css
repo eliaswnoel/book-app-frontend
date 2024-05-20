@@ -169,6 +169,9 @@ body {
   align-items: center; /* Center items horizontally */
 }
 
+h1 {
+  font-family: 'Indie Flower', cursive; 
+}
 
 
 .titleAndIconContainer {

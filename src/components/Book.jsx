@@ -1,6 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import axios from 'axios';
 import BookModal from './BookModal'
+
+
+
 
 const Book = ({}) => {
     const [books, setBooks] = useState([]);
@@ -23,9 +26,9 @@ const Book = ({}) => {
     };
     
     const handleImageClick = (book) => {
-        // Toggle expanded state for the clicked book
         setExpandedBook(expandedBook === book ? null : book);
     };
+
 
 
     //Handle Delete
@@ -49,8 +52,8 @@ const Book = ({}) => {
 
     return (
         <div>
+            <h1>Reading Log</h1>
             <button onClick={openModal}>Add New Book</button>
-            {/* List of books */}
             <div className="logGrid">
                 {books.map((book, index) => (
                     <div key={index} className="logItem">
