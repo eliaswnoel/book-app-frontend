@@ -24,7 +24,7 @@ const Register = () => {
       email: formValues.email,
       password: formValues.password
     })
-    navigate('/signin')
+    navigate('/login')
 
   }
 

@@ -1,12 +1,14 @@
 import { useState } from "react";
 import axios from 'axios';
 
+
 const BookModal = ({ onClose, fetchBooks }) => {
     const [newBook, setNewBook] = useState({
         name: "",
         image: "",
         summary: "",
-        rating: 0
+        rating: 0,
+        isFavorite: false
     });
 
     const handleChange = (e) => {
@@ -17,6 +19,16 @@ const BookModal = ({ onClose, fetchBooks }) => {
         }));
     };
 
+    //for favorite
+    const handleCheckboxChange = (e) => {
+        const { name, checked } = e.target;
+        setNewBook(prevState => ({
+            ...prevState,
+            [name]: checked
+        }));
+    };
+
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -25,7 +37,8 @@ const BookModal = ({ onClose, fetchBooks }) => {
                 name: "",
                 image: "",
                 summary: "",
-                rating: 0
+                rating: 0,
+                isFavorite: false
             });
             fetchBooks();
             onClose(); // Close the modal after adding a book
@@ -68,6 +81,15 @@ const BookModal = ({ onClose, fetchBooks }) => {
                         onChange={handleChange}
                         placeholder="Rating"
                     />
+                    <label>
+                            <input
+                                type="checkbox"
+                                name="isFavorite"
+                                checked={newBook.isFavorite}
+                                onChange={handleCheckboxChange}
+                            />
+                            Add to Favorites
+                        </label>
                     <button type="submit">Add Book</button>
                 </form>
                 </div>

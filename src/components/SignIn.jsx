@@ -16,12 +16,13 @@ const SignIn = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     const payload = await SignInUser(formValues)
+    localStorage.setItem('token', res.data.token)
     setFormValues({ email: '', password: '' })
     props.setUser(payload)
-    navigate('/feed')
+    navigate('/')
   }
   
-  localStorage.setItem('token', res.data.token)
+  // localStorage.setItem('token', res.data.token)
 
   return (
     <div className="signin col">
