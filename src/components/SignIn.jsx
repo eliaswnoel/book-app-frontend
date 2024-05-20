@@ -15,10 +15,11 @@ const SignIn = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const payload = await SignInUser(formValues)
-    localStorage.setItem('token', res.data.token)
+    const res = await SignInUser(formValues)
+    localStorage.setItem('user', res)
+    console.log(res)
     setFormValues({ email: '', password: '' })
-    props.setUser(payload)
+    // props.setUser(res)
     navigate('/')
   }
   
