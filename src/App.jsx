@@ -8,6 +8,7 @@ import Reviews from "./components/Reviews";
 import ReviewDetails from "./components/ReviewDetails";
 import Register from "./components/Register";
 import SignIn from "./components/SignIn";
+import Favorite from "./components/Favorites";
 import { CheckSession } from "./services/Auth";
 
 const App = () => {
@@ -32,6 +33,7 @@ const App = () => {
         <NavLink to="/reviews">Reviews</NavLink>
         <NavLink to="/login">Login</NavLink>
         <NavLink to="/register">Register</NavLink>
+        <NavLink to="/favorites">Favorite</NavLink>
       </nav>
 
       <Routes>
@@ -41,6 +43,7 @@ const App = () => {
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/reviews/:id" element={<ReviewDetails />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/favorites" element={<Favorite />} />
         <Route path="/login" element={<SignIn setUser={setUser} />} />
       </Routes>
     </BrowserRouter>
