@@ -14,10 +14,10 @@ import { CheckSession } from "./services/Auth";
 const App = () => {
   const [user, setUser] = useState(null);
 
-  // const handleLogOut = () => {
-  //   setUser(null)
-  //   localStorage.clear()
-  // }
+  const handleLogOut = () => {
+    setUser(null)
+    localStorage.clear()
+  }
 
   const checkToken = async () => {
     const user = await CheckSession();
@@ -39,6 +39,7 @@ const App = () => {
         <NavLink to="/login">Login</NavLink>
         <NavLink to="/register">Register</NavLink>
         <NavLink to="/favorites">Favorite</NavLink>
+        <NavLink onClick={handleLogOut} to="/">Sign Out</NavLink>
       </nav>
 
       <Routes>
