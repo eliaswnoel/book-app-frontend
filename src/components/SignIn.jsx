@@ -28,37 +28,74 @@ const SignIn = (props) => {
   // localStorage.setItem('token', res.data.token)
 
   return (
-    <div className="signin col">
-      <div className="card-overlay centered">
-        <form className="col" onSubmit={handleSubmit}>
-          <div className="input-wrapper">
-            <label htmlFor="email">Email</label>
-            <input
-              onChange={handleChange}
-              name="email"
-              type="email"
-              placeholder="example@example.com"
-              value={formValues.email}
-              required
-            />
-          </div>
-          <div className="input-wrapper">
-            <label htmlFor="password">Password</label>
-            <input
-              onChange={handleChange}
-              type="password"
-              name="password"
-              value={formValues.password}
-              required
-            />
-          </div>
-          <button disabled={!formValues.email || !formValues.password}>
-            Sign In
-          </button>
-        </form>
-      </div>
+//     <div className="signin col">
+//       <div className="card-overlay centered">
+//         <form className="col" onSubmit={handleSubmit}>
+//           <div className="input-wrapper">
+//             <label htmlFor="email">Email</label>
+//             <input
+//               onChange={handleChange}
+//               name="email"
+//               type="email"
+//               placeholder="example@example.com"
+//               value={formValues.email}
+//               required
+//             />
+//           </div>
+//           <div className="input-wrapper">
+//             <label htmlFor="password">Password</label>
+//             <input
+//               onChange={handleChange}
+//               type="password"
+//               name="password"
+//               value={formValues.password}
+//               required
+//             />
+//           </div>
+//           <button disabled={!formValues.email || !formValues.password}>
+//             Sign In
+//           </button>
+//         </form>
+//       </div>
+//     </div>
+//   )
+// }
+<div className="signin-container">
+<h4>Sign In !</h4>
+<div className="signin-card">
+  <form className="signin-form" onSubmit={handleSubmit}>
+    <div className="form-group">
+      <label htmlFor="email">Email</label>
+      <input
+        className="form-control"
+        onChange={handleChange}
+        name="email"
+        type="email"
+        placeholder="example@example.com"
+        value={formValues.email}
+        required
+      />
     </div>
-  )
-}
+    <div className="form-group">
+      <label htmlFor="password">Password</label>
+      <input
+        className="form-control"
+        onChange={handleChange}
+        type="password"
+        name="password"
+        value={formValues.password}
+        required
+      />
+    </div>
+    <button className="btn-signin" disabled={!formValues.email || !formValues.password}>
+      Sign In
+    </button>
+  </form>
+</div>
+</div>
+);
+};
+
+
 
 export default SignIn

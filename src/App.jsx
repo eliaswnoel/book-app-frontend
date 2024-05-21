@@ -33,18 +33,6 @@ const App = () => {
   }, []);
 
   return (
-    // <BrowserRouter>
-    //   <nav className="top-nav">
-    //     <NavLink to="/">Home</NavLink>
-    //     <NavLink to="/books">Reading Log</NavLink>
-    //     <NavLink to="/wishlist">Wishlist</NavLink>
-    //     <NavLink to="/reviews">Reviews</NavLink>
-    //     <NavLink to="/favorites">Favorite</NavLink>
-    //     <NavLink onClick={handleLogOut} to="/">Sign Out</NavLink>
-    //     <NavLink to="/login">Login</NavLink>
-    //     <NavLink to="/register">Register</NavLink>
-    //   </nav>
-
     <BrowserRouter>
     <nav className="top-nav">
       <NavLink to="/">Home</NavLink>
