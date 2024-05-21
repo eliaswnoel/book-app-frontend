@@ -19,6 +19,10 @@ const App = () => {
     localStorage.clear()
   }
 
+  const handleLogin =  (userData) => {
+    setUser(userData);
+  }
+
   const checkToken = async () => {
     const user = await CheckSession();
     setUser(user);
@@ -29,28 +33,48 @@ const App = () => {
   }, []);
 
   return (
+    // <BrowserRouter>
+    //   <nav className="top-nav">
+    //     <NavLink to="/">Home</NavLink>
+    //     <NavLink to="/books">Reading Log</NavLink>
+    //     <NavLink to="/wishlist">Wishlist</NavLink>
+    //     <NavLink to="/reviews">Reviews</NavLink>
+    //     <NavLink to="/favorites">Favorite</NavLink>
+    //     <NavLink onClick={handleLogOut} to="/">Sign Out</NavLink>
+    //     <NavLink to="/login">Login</NavLink>
+    //     <NavLink to="/register">Register</NavLink>
+    //   </nav>
+
     <BrowserRouter>
-      {/* Wrap your entire application with BrowserRouter */}
-      <nav className="top-nav">
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/books">Reading Log</NavLink>
-        <NavLink to="/wishlist">Wishlist</NavLink>
-        <NavLink to="/reviews">Reviews</NavLink>
-        <NavLink to="/login">Login</NavLink>
-        <NavLink to="/register">Register</NavLink>
-        <NavLink to="/favorites">Favorite</NavLink>
-        <NavLink onClick={handleLogOut} to="/">Sign Out</NavLink>
-      </nav>
+    <nav className="top-nav">
+      <NavLink to="/">Home</NavLink>
+      {user ? ( // Check if user is logged in
+        <>
+          <NavLink to="/books">Reading Log</NavLink>
+          <NavLink to="/wishlist">Wishlist</NavLink>
+          <NavLink to="/reviews">Reviews</NavLink>
+          <NavLink to="/favorites">Favorite</NavLink>
+          <NavLink onClick={handleLogOut} to="/">Sign Out</NavLink>
+        </>
+      ) : ( // Render these links if user is logged out
+        <>
+          <NavLink to="/login">Login</NavLink>
+          <NavLink to="/register">Register</NavLink>
+        </>
+      )}
+    </nav>
+
 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/books" element={<Book />} />
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/reviews" element={<Reviews />} />
+        <Route path="/favorites" element={<Favorite />} />
         <Route path="/reviews/:id" element={<ReviewDetails />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/favorites" element={<Favorite />} />
-        <Route path="/login" element={<SignIn setUser={setUser} />} />
+        {/* <Route path="/login" element={<SignIn setUser={setUser} />} /> */}
+        <Route path="/login" element={<SignIn handleLogin={handleLogin} />} />
       </Routes>
     </BrowserRouter>
   );

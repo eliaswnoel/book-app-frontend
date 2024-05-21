@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { SignInUser } from '../services/Auth'
 import { useNavigate } from 'react-router-dom'
 
-const SignIn = () => {
+const SignIn = (props) => {
 
   let navigate = useNavigate()
   
@@ -19,6 +19,7 @@ const SignIn = () => {
     const res = await SignInUser(formValues)
     localStorage.setItem('user', res)
     console.log(res)
+    props.handleLogin(res)
     setFormValues({ email: '', password: '' })
     // props.setUser(res)
     navigate('/')
