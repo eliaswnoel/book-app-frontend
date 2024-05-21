@@ -5,7 +5,7 @@ import BookModal from './BookModal'
 
 
 
-const Book = ({}) => {
+const Book = ({user}) => {
     const [books, setBooks] = useState([]);
     const [expandedBook, setExpandedBook] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -70,7 +70,7 @@ const Book = ({}) => {
                 ))}
             </div>
             {/* Render the modal if isModalOpen is true */}
-            {isModalOpen && <BookModal onClose={closeModal} fetchBooks={fetchBooks} />}
+            {isModalOpen && <BookModal user={user} onClose={closeModal} fetchBooks={fetchBooks} />}
         </div>
     );
 }

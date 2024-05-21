@@ -13,7 +13,7 @@ import { CheckSession } from "./services/Auth";
 
 const App = () => {
   const [user, setUser] = useState(null);
-
+  console.log(user)
   const handleLogOut = () => {
     setUser(null)
     localStorage.clear()
@@ -55,7 +55,7 @@ const App = () => {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/books" element={<Book />} />
+        <Route path="/books" element={<Book user={user} />} />
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/favorites" element={<Favorite />} />

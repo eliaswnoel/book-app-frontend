@@ -2,7 +2,8 @@ import { useState } from "react";
 import axios from 'axios';
 
 
-const BookModal = ({ onClose, fetchBooks }) => {
+const BookModal = ({ user, onClose, fetchBooks }) => {
+    console.log("user", user)
     const [newBook, setNewBook] = useState({
         name: "",
         image: "",
@@ -33,9 +34,13 @@ const BookModal = ({ onClose, fetchBooks }) => {
         e.preventDefault();
         try {
             const response = await axios.post(`http://localhost:4000/books`, newBook);
-            const newBookId = response.data.id;
+            const newBookId = response.data._id;
+            console.log(newBookId)
+            console.log(newBook.isFavorite)
             if (newBook.isFavorite) {
-                await axios.post(`http://localhost:4000/favorites`, { bookId: newBook.id }); 
+                const data = { userId: user.id, bookId: newBookId }
+                console.log(data)
+                await axios.post(`http://localhost:4000/favorites`, data); 
             }
             setNewBook({
                 name: "",
