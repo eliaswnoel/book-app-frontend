@@ -8,9 +8,10 @@ const SignIn = () => {
   
   const [formValues, setFormValues] = useState({ email: '', password: '' })
 
-  const handleChange = (e) => {
+  const handleChange = async (e) => {
+    // const payload = await SignInUser(formValues)
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
-    PaymentResponse.setUser(payload)
+    // PaymentResponse.setUser(payload)
   }
 
   const handleSubmit = async (e) => {

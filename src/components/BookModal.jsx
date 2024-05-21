@@ -32,7 +32,11 @@ const BookModal = ({ onClose, fetchBooks }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post(`http://localhost:4000/books`, newBook);
+            const response = await axios.post(`http://localhost:4000/books`, newBook);
+            const newBookId = response.data.id;
+            if (newBook.isFavorite) {
+                await axios.post(`http://localhost:4000/favorites`, { bookId: newBook.id }); 
+            }
             setNewBook({
                 name: "",
                 image: "",
