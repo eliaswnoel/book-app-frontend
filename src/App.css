@@ -310,13 +310,13 @@ h4 {
   line-height: 2;
 }
 
+
 .review-delete-button{
   position: absolute;
-  bottom: 710px; 
+  bottom: 557px; 
   left: 94%; 
   transform: translateX(-50%);
 }
-
 
 .reviewslogGrid {
   justify-content: center;
@@ -360,6 +360,7 @@ h4 {
   font-family: 'Indie Flower', cursive; 
   font-size: 30px;
 }
+
 
 
 

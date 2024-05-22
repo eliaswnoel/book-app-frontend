@@ -8,7 +8,7 @@ import Reviews from "./components/Reviews";
 import ReviewDetails from "./components/ReviewDetails";
 import Register from "./components/Register";
 import SignIn from "./components/SignIn";
-import Favorite from "./components/Favorites";
+import Favorites from "./components/Favorites";
 import { CheckSession } from "./services/Auth";
 
 const App = () => {
@@ -58,7 +58,7 @@ const App = () => {
         <Route path="/books" element={<Book user={user} />} />
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/reviews" element={<Reviews />} />
-        <Route path="/favorites" element={<Favorite />} />
+        <Route path="/favorites" element={<Favorites />} />
         <Route path="/reviews/:id" element={<ReviewDetails />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<SignIn handleLogin={handleLogin} />} />

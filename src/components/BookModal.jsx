@@ -51,7 +51,10 @@ const BookModal = ({ user, onClose, fetchBooks, isEditMode, book }) => {
             if (newBook.isFavorite) {
                 const data = { userId: user.id, bookId: newBookId }
                 console.log(data)
-                await axios.post(`http://localhost:4000/favorites`, data); 
+                await axios.post(`http://localhost:4000/favorites`, data);
+                fetchBooks();  
+            } else {
+                fetchBooks();
             }
             setNewBook({
                 name: "",

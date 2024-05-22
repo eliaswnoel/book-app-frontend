@@ -21,10 +21,14 @@ const Favorites = () => {
         <div>
             <h1>My Favorites</h1>
             <div className="favoritesGrid">
-                {favorites.map((favorite, index) => (
+                {favorites && favorites.map((favorite, index) => (
                     <div key={index} className="favoriteItem">
-                        <h2>{favorite.book.name}</h2>
-                        <img src={favorite.book.image} alt={favorite.book.name} className="favoriteImg" />
+                        {favorite && favorite.book && (
+                            <>
+                                <h2>{favorite.book.name}</h2>
+                                <img src={favorite.book.image} alt={favorite.book.name} className="favoriteImg" />
+                            </>
+                        )}
                     </div>
                 ))}
             </div>
