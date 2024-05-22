@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from 'axios';
 import { useParams} from 'react-router-dom';
 
-const ReviewDetails = ({ match }) => { 
+const ReviewDetails = ({ match }) => {  
     const [review, setReview] = useState(null);
     const { id } = useParams(); 
 
@@ -23,7 +23,7 @@ const ReviewDetails = ({ match }) => {
     const handleDelete = async () => {
         try {
             await axios.delete(`http://localhost:4000/reviews/${id}`);
-            fetchReview();    
+            fetchReview();   
         } catch (error) {
             console.error('Error deleting review:', error);
         }
