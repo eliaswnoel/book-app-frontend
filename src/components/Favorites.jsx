@@ -18,6 +18,8 @@ const Favorites = () => {
         }
     };
 
+
+
     return (
         <div>
             <h1>My Favorites</h1>
@@ -26,7 +28,6 @@ const Favorites = () => {
                     <div key={index} className="favoriteItem">
                         {favorite &&  (
                             <>
-                                <h2>{favorite.name}</h2>
                                 <img src={favorite.image} alt={favorite.name} className="favoriteImg" />
                             </>
                         )}
