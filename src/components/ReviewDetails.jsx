@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 
 const ReviewDetails = ({ match }) => { 
     const [review, setReview] = useState(null);
     const { id } = useParams(); 
+    const history = useHistory();
 
     useEffect(() => {
         fetchReview();
@@ -16,6 +17,16 @@ const ReviewDetails = ({ match }) => {
             setReview(response.data);
         } catch (error) {
             console.error('Error fetching review:', error);
+        }
+    };
+
+    //handle delete
+    const handleDelete = async () => {
+        try {
+            await axios.delete(`http://localhost:4000/reviews/${id}`);
+            history.push('/reviews'); // Redirect to reviews list after delete
+        } catch (error) {
+            console.error('Error deleting review:', error);
         }
     };
 
@@ -42,6 +53,7 @@ return (
             <div className="review-content">
                 <h2>My Review of "{review.title}"</h2>
                 <p>Date: {new Date(review.date).toLocaleDateString()}</p>
+                <button onClick={handleDelete}>Delete</button> {/* Delete button */}
             </div>
         </div>
         <div className="written-review">
