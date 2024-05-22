@@ -71,11 +71,8 @@ const Wishlist = () => {
                         <h2>{item.title}</h2>
                         <p>Author: {item.author}</p>
                         <img src={item.image} alt={`${item.title} by ${item.author}`} />
-                        {/* <button onClick={() => handleDelete(item._id)}  >-</button>
-                        <button onClick={() => handleMoveToBooks(item._id) }>Move to Books</button> */}
                             {expandedItem === item._id && (
                             <div>
-                                {/* <img src={item.image} alt={`${item.title} by ${item.author}`} /> */}
                                 <button onClick={() => handleDelete(item._id)}>- Delete</button>
                                 <button onClick={() => handleMoveToBooks(item._id)}>Move to Books</button>
                             </div>
