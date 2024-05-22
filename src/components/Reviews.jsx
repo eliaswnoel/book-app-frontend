@@ -2,7 +2,6 @@ import axios from 'axios';
 import React, { useState, useEffect } from "react";
 import ReviewModal from './ReviewModal';
 import { Link } from 'react-router-dom';
-import { FaBook } from 'react-icons/fa'; 
 
 const Reviews = () => {
     const [reviews, setReviews] = useState([]);
@@ -41,37 +40,28 @@ const Reviews = () => {
     };
     return (
         <div>
+        <h1>My Reviews</h1>
           <button onClick={openModal}>Add New Review</button>
-          {/* List of reviews */}
           <div className="reviewslogGrid">
-  {reviews.map((review, index) => (     
-    <div key={index} className="reviewentry">
-        <img src={review.image} alt={review.title} className="reviewImage" />
-        <h2>{review.title}</h2>
-      {/* Container for the review title, date, and notebook icon */}
-      <div className="titleAndDateContainer">
-        {/* Display title */}
-        {/* <h2>{review.title}</h2> */}
-        {/* Display date */}
-        <div className="date">
-          <p> 
-            <span className="date">{new Date(review.date).toLocaleDateString('en-US', { year: 'numeric', month: 'numeric', day: 'numeric' })}</span>
-          </p>
-        </div>
-                  {/* Notebook icon */}
-                  <div className="notebookIcon">
+                {reviews.map((review, index) => (     
+                <div key={index} className="reviewentry">
                     <Link to={`/reviews/${review._id}`}>
-                      <FaBook style={{ fontSize: "24px", color: "blue", cursor: "pointer" }} />
+                    <img src={review.image} alt={review.title} className="reviewImage" />
                     </Link>
-                  </div>
+                <div className="titledate-container">
+                    <div className="date">
+                    {/* {review.title} */}
+                        <p> <span className="date"> {review.title} {new Date(review.date).toLocaleDateString('en-US', { year: 'numeric', month: 'numeric', day: 'numeric' })}</span></p>
+                     </div>
                 </div>
-              </div>
+                </div>
             ))}
-          </div>
-          {/* Render the modal if isModalOpen is true */}
-          {isModalOpen && <ReviewModal onClose={closeModal} fetchReviews={fetchReviews} />}
         </div>
-      );
+    {isModalOpen && <ReviewModal onClose={closeModal} fetchReviews={fetchReviews}  />}
+    </div>
+);
+
+
 }
 
 

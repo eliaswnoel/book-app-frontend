@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from 'axios';
 
-const ReviewModal = ({ onClose, fetchReviews }) => {
+const ReviewModal = ({ onClose, fetchReviews}) => {
     const [newReview, setNewReview] = useState({
         title: "",
         image: "",
