@@ -48,7 +48,9 @@ const Reviews = () => {
     return (
         <div>
         <h1>My Reviews</h1>
-          <button onClick={openModal}>Add New Review</button>
+          {/* <button onClick={openModal}>➕</button> */}
+          <button  onClick={openModal} style={{ borderRadius: '50%', backgroundColor: 'white', color: 'white', width: '30px', height: '30px', fontSize: '15px', border: 'none', cursor: 'pointer', justifyContent: 'center', alignItems: 'center' }}>➕</button>
+
           <div className="reviewslogGrid">
                 {reviews.map((review, index) => (     
                 <div key={index} className="reviewentry">

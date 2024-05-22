@@ -14,11 +14,14 @@ const BookModal = ({ user, onClose, fetchBooks }) => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
+        const sanitizedValue = name === 'rating' ? Math.min(Math.max(parseInt(value), 1), 5) : value;
         setNewBook(prevState => ({
             ...prevState,
-            [name]: value
+            [name]: sanitizedValue
         }));
     };
+
+
 
     //for favorite
     const handleCheckboxChange = (e) => {
