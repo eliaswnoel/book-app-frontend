@@ -9,6 +9,7 @@ const Book = ({user}) => {
     const [books, setBooks] = useState([]);
     const [expandedBook, setExpandedBook] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [editBook, setEditBook] = useState(null);
 
     useEffect(() => {
         fetchBooks();
@@ -42,13 +43,9 @@ const Book = ({user}) => {
     };
 
     //update
-    const handleUpdate = async (updatedBook) => {
-        try {
-            await axios.put(`http://localhost:4000/books/${updatedBook._id}`, updatedBook);
-            fetchBooks();    
-        } catch (error) {
-            console.error('Error updating book:', error);
-        }
+    const handleEdit = (book) => {
+        setEditBook(book);
+        setIsModalOpen(true);
     };
 
     const openModal = () => {
@@ -73,15 +70,16 @@ const Book = ({user}) => {
                             <div>
                                 <p>Summary: {book.summary}</p>
                                 <p>Rating: {book.rating}</p>
-                                <button onClick={() => handleDelete(book._id)}>delete book from log</button>
-                                <button onClick={() => handleUpdate(book)}>Update book</button>
+                                <button onClick={() => handleDelete(book._id)}>Delete book from log</button>
+                                <button onClick={() => handleEdit(book)}>Update book</button>
+
                             </div>
                         )}
                     </div>
                 ))}
             </div>
             {/* Render the modal if isModalOpen is true */}
-            {isModalOpen && <BookModal user={user} onClose={closeModal} fetchBooks={fetchBooks} />}
+            {isModalOpen && <BookModal user={user} onClose={closeModal} fetchBooks={fetchBooks} book={editBook} isEditMode={!!editBook} />}
         </div>
     );
 }

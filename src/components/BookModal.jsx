@@ -1,16 +1,24 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from 'axios';
 
 
-const BookModal = ({ user, onClose, fetchBooks }) => {
+const BookModal = ({ user, onClose, fetchBooks, isEditMode, book }) => {
     console.log("user", user)
     const [newBook, setNewBook] = useState({
         name: "",
         image: "",
         summary: "",
-        rating: 0,
+        rating: "",
         isFavorite: false
     });
+
+
+    //editmode
+    useEffect(() => {
+        if (isEditMode && book) {
+            setNewBook(book);
+        }
+    }, [book, isEditMode]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -102,7 +110,9 @@ const BookModal = ({ user, onClose, fetchBooks }) => {
                             />
                             Add to Favorites
                         </label>
-                    <button type="submit">Add Book</button>
+                    {/* <button type="submit">Add Book</button> */}
+                    <button type="submit">{isEditMode ? "Update Book" : "Add Book"}</button>
+
                 </form>
                 </div>
             </div>

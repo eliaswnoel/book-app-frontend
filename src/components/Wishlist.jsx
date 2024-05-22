@@ -4,6 +4,7 @@ import WishlistModal from './WishlistModal'
 
 const Wishlist = () => {
     const [wishlistItems, setWishlistItems] = useState([]);
+    const [expandedItem, setExpandedItem] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
     
     useEffect(() => {
@@ -18,6 +19,10 @@ const Wishlist = () => {
         } catch (error) {
             console.error('Error fetching wishlist items:', error);
         }
+    };
+
+    const handleItemClick = (itemId) => {
+        setExpandedItem(itemId === expandedItem ? null : itemId);
     };
 
 
@@ -62,12 +67,19 @@ const Wishlist = () => {
 
             <ul className="wishlistGrid">
                 {wishlistItems.map(item => (
-                    <li key={item._id}>
+                    <li key={item._id} onClick={() => handleItemClick(item._id)}>
                         <h2>{item.title}</h2>
                         <p>Author: {item.author}</p>
                         <img src={item.image} alt={`${item.title} by ${item.author}`} />
-                        <button onClick={() => handleDelete(item._id)}  >-</button>
-                        <button onClick={() => handleMoveToBooks(item._id) }>Move to Books</button>
+                        {/* <button onClick={() => handleDelete(item._id)}  >-</button>
+                        <button onClick={() => handleMoveToBooks(item._id) }>Move to Books</button> */}
+                            {expandedItem === item._id && (
+                            <div>
+                                {/* <img src={item.image} alt={`${item.title} by ${item.author}`} /> */}
+                                <button onClick={() => handleDelete(item._id)}>- Delete</button>
+                                <button onClick={() => handleMoveToBooks(item._id)}>Move to Books</button>
+                            </div>
+                        )}
                     </li>
                 ))}
             </ul>
