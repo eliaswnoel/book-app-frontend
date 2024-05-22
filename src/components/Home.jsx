@@ -7,14 +7,15 @@ const Container = styled.div`
 
 const Home = () => {
   return (
+
     <div className="home-container">
-      <img src="/images/libraryimage.jpg" className="home-image"/>
-      <div className="text-container">
-        <h1 >WELCOME TO BOOKWORM!!</h1>
-        <h2>WRITE, SHARE AND DISCPVER: YOUR HOME FOR BOOKISH EXPLORATION</h2>
-        <h2>we can't wait to see what books you bring to the community :)</h2>
+      <h1 >WELCOME TO BOOKWORM!!</h1>
+        <div class = 'trendingimages'>
+        <img src="/images/book1.jpg" />
+        <img src="/images/book2.jpg" />
+        <img src="/images/book3.jpg"/>
       </div>
-      <h3>TRENDING READS</h3>
+      <h2 class = 'track'> Track, Rate, Review and Remember all the books you love </h2>
     </div>
   );
 };

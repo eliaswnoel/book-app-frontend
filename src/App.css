@@ -75,7 +75,6 @@ body {
   font-family: 'Indie Flower', cursive;
   color: #72199f;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.135);
-  background-color: rgb(225, 166, 234);
   font-size: 15px;
 }
 
@@ -361,6 +360,23 @@ h4 {
   left: 70%;
 }
 
+.trending-header {
+  margin-top: 640px;
+  color: #4e136c;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.trendingimages {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px;
+}
+
+.track {
+  font-family: 'Indie Flower', cursive; 
+  font-size: 30px;
+}
 
 
 
