@@ -341,7 +341,7 @@ h4 {
 }
 
 .reviewentry {
-  width: 750px;
+  width: 600px;
   height: auto; 
   /* margin: 20px; */
   margin-bottom: -50px;
@@ -358,7 +358,7 @@ h4 {
   align-items: center;
   position: relative; 
   bottom: 250px; 
-  left: 50%;
+  left: 70%;
 }
 
 

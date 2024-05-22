@@ -38,6 +38,13 @@ const Reviews = () => {
     const closeModal = () => {
         setIsModalOpen(false);
     };
+
+    //get first sentence
+    const getFirstSentence = (reviewText) => {
+        const firstSentence = reviewText.split('. ')[0]; // Split by periods and get the first part
+        return firstSentence.length > 100 ? firstSentence.substring(0, 100) + '...' : firstSentence; // Trim to 100 characters
+    };
+
     return (
         <div>
         <h1>My Reviews</h1>
@@ -50,9 +57,10 @@ const Reviews = () => {
                     </Link>
                 <div className="titledate-container">
                     <div className="date">
-                    {/* {review.title} */}
                         <p> <span className="date"> {review.title} {new Date(review.date).toLocaleDateString('en-US', { year: 'numeric', month: 'numeric', day: 'numeric' })}</span></p>
+                        <p className="review-first-sentence">{getFirstSentence(review.review)}</p>
                      </div>
+                     
                 </div>
                 </div>
             ))}
