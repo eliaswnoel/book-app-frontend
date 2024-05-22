@@ -45,13 +45,15 @@ const Reviews = () => {
           {/* List of reviews */}
           <div className="reviewslogGrid">
   {reviews.map((review, index) => (     
-    <div key={index} className="reviewslogItem">
+    <div key={index} className="reviewentry">
+        <img src={review.image} alt={review.title} className="reviewImage" />
+        <h2>{review.title}</h2>
       {/* Container for the review title, date, and notebook icon */}
       <div className="titleAndDateContainer">
         {/* Display title */}
-        <h2>{review.title}</h2>
+        {/* <h2>{review.title}</h2> */}
         {/* Display date */}
-        <div className="dateContainer">
+        <div className="date">
           <p> 
             <span className="date">{new Date(review.date).toLocaleDateString('en-US', { year: 'numeric', month: 'numeric', day: 'numeric' })}</span>
           </p>

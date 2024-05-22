@@ -154,7 +154,7 @@ body {
   margin-bottom: 10px;
 }
 
-.reviewslogItem {
+/* .reviewslogItem {
   width: 200px; 
   height: auto;
   margin: 10px;
@@ -165,9 +165,11 @@ body {
 
 .reviewslogGrid {
   display: flex;
-  flex-direction: column; /* Set flex direction to column */
-  align-items: center; /* Center items horizontally */
-}
+  flex-direction: column; 
+  align-items: center; 
+} */
+
+
 
 h1 {
   font-family: 'Indie Flower', cursive; 
@@ -260,4 +262,86 @@ h4 {
   margin-top: -10vh;
   font-size: 65px;
   color: rgb(226, 247, 255)
+}
+
+.reviewEntry {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.reviewImage {
+  width: 200px;
+  height: auto;
+  margin-right: 20px;
+}
+
+.reviewContent {
+  flex-grow: 1;
+}
+
+.reviewContent h2 {
+  margin-top: 0;
+}
+
+.reviewContent .date {
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.notebookIcon {
+  text-align: center;
+}
+
+.notebookIcon a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.notebookIcon a:hover {
+  color: #007bff;
+}
+
+.review-details-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.review-image {
+  position: absolute;
+  top: 0; /* Align the top of the image with the top of the container */
+  left: 0;
+  width: 25%; /* Adjust the width to 25% */
+  height: 100%; /* Set height to 100% to cover the container */
+  object-fit: cover;
+}
+
+.review-content {
+  position: absolute;
+  margin-left: 25%;
+  font-family: 'Indie Flower', cursive;
+  color: #72199f;
+  font-size: 30px;
+}
+
+.written-review {
+  clear: left; /* Clear the floated image */
+  position: absolute;
+  /* float: bottom;  */
+  width: calc(100% - (10% + 20px)); /* Calculate the width to fill the remaining space */
+  font-size: 20px;
+  padding: 30px; /* Add padding for better readability */
+  border: 2px solid #72199f; /* Add border for visibility */
+  border-radius: 10px; /* Add border-radius for a curved appearance */
+  background-color: #f7f7f7; /* Add background color */
+  margin-top: 400px; /* Add margin to separate from the content above */
+  margin-left: 3%;
+  text-align: left;
+  line-height: 2;
 }

@@ -23,14 +23,32 @@ const ReviewDetails = ({ match }) => {
         return <div>Loading...</div>;
     }
 
-    return (
-        <div>
-            <h2>{review.title}</h2>
-            <img src={review.image} alt={review.title} />
-            <p>{review.review}</p>
-            <p>Date: {new Date(review.date).toLocaleDateString()}</p>
+//     return (
+//         <div>
+//             <h2>{review.title}</h2>
+//             <img src={review.image} alt={review.title} />
+//             <p>{review.review}</p>
+//             <p>Date: {new Date(review.date).toLocaleDateString()}</p>
+//         </div>
+//     );
+// }
+
+return (
+    <div>
+        <div className="review-details-container">
+            <div className="review-image">
+                <img src={review.image} alt={review.title} />
+            </div>
+            <div className="review-content">
+                <h2>My Review of "{review.title}"</h2>
+                <p>Date: {new Date(review.date).toLocaleDateString()}</p>
+            </div>
         </div>
-    );
+        <div className="written-review">
+            <p>{review.review}</p>
+        </div>
+    </div>
+);
 }
 
 export default ReviewDetails;
