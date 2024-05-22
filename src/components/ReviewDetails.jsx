@@ -30,19 +30,11 @@ const ReviewDetails = ({ match }) => {
     };
 
 
+
     if (!review) {
         return null; 
     }
 
-//     return (
-//         <div>
-//             <h2>{review.title}</h2>
-//             <img src={review.image} alt={review.title} />
-//             <p>{review.review}</p>
-//             <p>Date: {new Date(review.date).toLocaleDateString()}</p>
-//         </div>
-//     );
-// }
 
 return (
     <div>
@@ -53,14 +45,20 @@ return (
             <div className="review-content">
                 <h2>My Review of "{review.title}"</h2>
                 <p>Date: {new Date(review.date).toLocaleDateString()}</p>
-                <button onClick={handleDelete}>Delete</button> {/* Delete button */}
             </div>
         </div>
         <div className="written-review">
             <p>{review.review}</p>
         </div>
+        <div className="review-delete-button">
+                <button onClick={handleDelete}>Delete This Review</button>
+        </div>
     </div>
 );
+
+
 }
+
+
 
 export default ReviewDetails;
