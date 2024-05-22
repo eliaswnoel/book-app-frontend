@@ -11,6 +11,7 @@ const Favorites = () => {
     const fetchFavorites = async () => {
         try {
             const response = await axios.get(`http://localhost:4000/favorites/`);
+            console.log(response.data)
             setFavorites(response.data);
         } catch (error) {
             console.error('Error fetching favorites:', error);
@@ -23,10 +24,10 @@ const Favorites = () => {
             <div className="favoritesGrid">
                 {favorites && favorites.map((favorite, index) => (
                     <div key={index} className="favoriteItem">
-                        {favorite && favorite.book && (
+                        {favorite &&  (
                             <>
-                                <h2>{favorite.book.name}</h2>
-                                <img src={favorite.book.image} alt={favorite.book.name} className="favoriteImg" />
+                                <h2>{favorite.name}</h2>
+                                <img src={favorite.image} alt={favorite.name} className="favoriteImg" />
                             </>
                         )}
                     </div>

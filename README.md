@@ -27,3 +27,7 @@ Node.js
 
 ## Get BookWorm
 Follow Production timeline through [Trello](https://trello.com/invite/b/M4RroajX/ATTI734987d0d983cc1549165104910675316F6B0809/bookworm-app)
+
+## Deployed App
+Bookworm was deployed using Heroku and Vercel
+Checkout [Bookworm]()
