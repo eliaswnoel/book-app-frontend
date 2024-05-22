@@ -42,13 +42,12 @@ const Reviews = () => {
     //get first sentence
     const getFirstSentence = (reviewText) => {
         const firstSentence = reviewText.split('. ')[0]; // Split by periods and get the first part
-        return firstSentence.length > 100 ? firstSentence.substring(0, 100) + '...' : firstSentence; // Trim to 100 characters
+        return firstSentence.length > 100 ? firstSentence.substring(0, 100) + '...' : firstSentence; 
     };
 
     return (
         <div>
         <h1>My Reviews</h1>
-          {/* <button onClick={openModal}>➕</button> */}
           <button  onClick={openModal} style={{ borderRadius: '50%', backgroundColor: 'white', color: 'white', width: '30px', height: '30px', fontSize: '15px', border: 'none', cursor: 'pointer', justifyContent: 'center', alignItems: 'center' }}>➕</button>
 
           <div className="reviewslogGrid">

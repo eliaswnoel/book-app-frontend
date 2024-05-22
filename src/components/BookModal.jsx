@@ -110,7 +110,6 @@ const BookModal = ({ user, onClose, fetchBooks, isEditMode, book }) => {
                             />
                             Add to Favorites
                         </label>
-                    {/* <button type="submit">Add Book</button> */}
                     <button type="submit">{isEditMode ? "Update Book" : "Add Book"}</button>
 
                 </form>

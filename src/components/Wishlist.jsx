@@ -42,7 +42,7 @@ const Wishlist = () => {
             const itemToMove = wishlistItems.find(item => item._id === id);
             // Remove item from wishlist
             await axios.delete(`http://localhost:4000/wishlist/${id}`);
-            // Add item to books section (assuming you have an endpoint for adding to books)
+            // Add item to books section 
             await axios.post(`http://localhost:4000/books`, itemToMove);
             fetchWishlistItems(); 
         } catch (error) {

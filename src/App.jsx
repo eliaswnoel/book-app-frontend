@@ -61,7 +61,6 @@ const App = () => {
         <Route path="/favorites" element={<Favorite />} />
         <Route path="/reviews/:id" element={<ReviewDetails />} />
         <Route path="/register" element={<Register />} />
-        {/* <Route path="/login" element={<SignIn setUser={setUser} />} /> */}
         <Route path="/login" element={<SignIn handleLogin={handleLogin} />} />
       </Routes>
     </BrowserRouter>
