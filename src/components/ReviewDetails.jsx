@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams} from 'react-router-dom';
 
 const ReviewDetails = ({ match }) => { 
     const [review, setReview] = useState(null);
     const { id } = useParams(); 
-    const history = useHistory();
 
     useEffect(() => {
         fetchReview();
@@ -24,14 +23,15 @@ const ReviewDetails = ({ match }) => {
     const handleDelete = async () => {
         try {
             await axios.delete(`http://localhost:4000/reviews/${id}`);
-            history.push('/reviews'); // Redirect to reviews list after delete
+            fetchReview();    
         } catch (error) {
             console.error('Error deleting review:', error);
         }
     };
 
+
     if (!review) {
-        return <div>Loading...</div>;
+        return null; 
     }
 
 //     return (
