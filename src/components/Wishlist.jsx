@@ -56,7 +56,7 @@ const Wishlist = () => {
     return (
         <div>
             <h1>Wishlist</h1>
-            <button onClick={openModal}>Add New Item</button>
+            <button  onClick={openModal} style={{ borderRadius: '50%', backgroundColor: 'white', color: 'white', width: '30px', height: '30px', fontSize: '15px', border: 'none', cursor: 'pointer', justifyContent: 'center', alignItems: 'center' }}>➕</button>
 
             
 
@@ -66,8 +66,8 @@ const Wishlist = () => {
                         <h2>{item.title}</h2>
                         <p>Author: {item.author}</p>
                         <img src={item.image} alt={`${item.title} by ${item.author}`} />
-                        <button onClick={() => handleDelete(item._id)}>Delete</button>
-                        <button onClick={() => handleMoveToBooks(item._id)}>Move to Books</button>
+                        <button onClick={() => handleDelete(item._id)}  >-</button>
+                        <button onClick={() => handleMoveToBooks(item._id) }>Move to Books</button>
                     </li>
                 ))}
             </ul>

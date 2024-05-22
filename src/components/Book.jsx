@@ -41,6 +41,16 @@ const Book = ({user}) => {
         }
     };
 
+    //update
+    const handleUpdate = async (updatedBook) => {
+        try {
+            await axios.put(`http://localhost:4000/books/${updatedBook._id}`, updatedBook);
+            fetchBooks();    
+        } catch (error) {
+            console.error('Error updating book:', error);
+        }
+    };
+
     const openModal = () => {
         setIsModalOpen(true);
     };
@@ -53,7 +63,7 @@ const Book = ({user}) => {
     return (
         <div>
             <h1>Reading Log</h1>
-            <button onClick={openModal}>Add New Book</button>
+            <button  onClick={openModal} style={{ borderRadius: '50%', backgroundColor: 'white', color: 'white', width: '30px', height: '30px', fontSize: '15px', border: 'none', cursor: 'pointer', justifyContent: 'center', alignItems: 'center' }}>➕</button>
             <div className="logGrid">
                 {books.map((book, index) => (
                     <div key={index} className="logItem">
@@ -64,6 +74,7 @@ const Book = ({user}) => {
                                 <p>Summary: {book.summary}</p>
                                 <p>Rating: {book.rating}</p>
                                 <button onClick={() => handleDelete(book._id)}>delete book from log</button>
+                                <button onClick={() => handleUpdate(book)}>Update book</button>
                             </div>
                         )}
                     </div>
