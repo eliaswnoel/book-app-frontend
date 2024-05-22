@@ -31,6 +31,20 @@ const Wishlist = () => {
         }
     };
 
+    //handle move to books
+    const handleMoveToBooks = async (id) => {
+        try {
+            const itemToMove = wishlistItems.find(item => item._id === id);
+            // Remove item from wishlist
+            await axios.delete(`http://localhost:4000/wishlist/${id}`);
+            // Add item to books section (assuming you have an endpoint for adding to books)
+            await axios.post(`http://localhost:4000/books`, itemToMove);
+            fetchWishlistItems(); 
+        } catch (error) {
+            console.error('Error moving item to books:', error);
+        }
+    };
+
     const openModal = () => {
         setIsModalOpen(true);
     };
@@ -53,6 +67,7 @@ const Wishlist = () => {
                         <p>Author: {item.author}</p>
                         <img src={item.image} alt={`${item.title} by ${item.author}`} />
                         <button onClick={() => handleDelete(item._id)}>Delete</button>
+                        <button onClick={() => handleMoveToBooks(item._id)}>Move to Books</button>
                     </li>
                 ))}
             </ul>
